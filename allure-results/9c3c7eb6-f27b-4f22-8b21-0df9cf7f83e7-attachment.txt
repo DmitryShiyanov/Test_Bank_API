@@ -1,0 +1,1 @@
+<Transaction(id=574, to_account_id=714, from_account_id=713, amount=500.0, transaction_type=transfer, credit_id=None, created_at=2026-04-25 12:41:07)>
