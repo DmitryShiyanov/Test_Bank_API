@@ -32,3 +32,24 @@ def create_another_user_request(api_manager):
     )
     api_manager.admin_steps.create_user(user_request)
     return user_request
+
+@pytest.fixture
+def user_account(api_manager, create_user_request):
+    response = api_manager.user_steps.create_account(create_user_request)
+    return response
+
+@pytest.fixture
+def user_with_two_accounts(api_manager, create_user_request):
+    first_account = api_manager.user_steps.create_account(create_user_request)
+    second_account = api_manager.user_steps.create_account(create_user_request)
+    return first_account, second_account
+
+@pytest.fixture
+def user_credit_account(api_manager, create_credit_secret_user_request):
+    return api_manager.user_steps.create_account(create_credit_secret_user_request)
+
+@pytest.fixture
+def user_with_two_credit_accounts(api_manager, create_credit_secret_user_request):
+    first = api_manager.user_steps.create_account(create_credit_secret_user_request)
+    second = api_manager.user_steps.create_account(create_credit_secret_user_request)
+    return first, second
