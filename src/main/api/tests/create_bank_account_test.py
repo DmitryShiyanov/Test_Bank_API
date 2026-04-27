@@ -10,8 +10,6 @@ from src.main.api.models.create_user_request import CreateUserRequest
 @pytest.mark.api
 class TestCreateBankAccount:
     def test_account_creation(self, db_session: Session, api_manager: ApiManager, create_user_request: CreateUserRequest, user_account: CreateUserRequest):
-        #response = api_manager.user_steps.create_account(create_user_request)
-
         assert user_account.balance == 0
 
         account_from_db = Account.get_account_by_id(db_session, user_account.id)
