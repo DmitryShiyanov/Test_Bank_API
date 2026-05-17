@@ -8,7 +8,6 @@ from src.main.api.db.crud.user_crud import UserCrudDb as User
 from src.main.api.generators.creation_rule import UserRole
 
 
-
 @pytest.mark.api
 class TestUserLogin:
     def test_admin_login(self, db_session: Session, api_manager: ApiManager):

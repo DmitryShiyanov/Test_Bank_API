@@ -9,7 +9,7 @@ from src.main.api.db.crud.user_crud import UserCrudDb as User
 class TestAdminRole:
     def test_get_all_users(self, db_session: Session, api_manager: ApiManager):
         response = api_manager.admin_steps.get_all_users()
-        all_users = next( (user for user in response
+        all_users = next((user for user in response
                           if user.username == "admin" and
                           user.role == UserRole.ADMIN), None)
         assert all_users is not None
